@@ -63,5 +63,5 @@ class MyGirlSpider(scrapy.Spider):
             s.sendmail(mail_user, mailto_list, msg.as_string())
             s.close()
         except Exception as e:
-            print()e
+            print(e)
 
