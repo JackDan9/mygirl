@@ -57,9 +57,11 @@ class MyGirlSpider(scrapy.Spider):
         msg['From'] = mail_user
         msg['To'] = mailto_list
         msg['Subject'] = Header('大兵男朋友的日常问候', 'utf-8')
-
-        s = smtplib.SMTP_SSL(mail_host, 465)
-        s.login(mail_user, mail_pass)
-        s.sendmail(mail_user, mailto_list, msg.as_string())
-        s.close()
+        try:
+            s = smtplib.SMTP_SSL(mail_host, 465)
+            s.login(mail_user, mail_pass)
+            s.sendmail(mail_user, mailto_list, msg.as_string())
+            s.close()
+        except Exception as e:
+            print()e
 
