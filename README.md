@@ -1,5 +1,7 @@
 # mygirl
 
+------
+
 ## SetUp
 ```bash
 ## Install Python-IDE
@@ -17,6 +19,17 @@ scrapy startproject projectname
 ## copy this code, you can run it.  
 ```
 
+------
+
+## ReadMeImage:
+
+![enter description here][1]
+
+------
+
 ## Thanks
 - If you like it, please give me a **star**!
 - This will support me to keep updating!
+
+
+  [1]: ./images/readme.png "readme.png"
