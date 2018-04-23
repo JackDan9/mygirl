@@ -30,7 +30,8 @@ class MyGirlSpider(scrapy.Spider):
         anniversary = datetime.datetime(2018, 3, 14)
         loving_days = (today - anniversary).days
 
-        if('雨' in Tod_Weather_Wea[0]):
+        # if('雨' in Tod_Weather_Wea[0]):
+        if((Tod_Weather_Wea[0].find(u'雨')) != -1):
             lst = [u'你好，呆瓜:\n\n\t'
                    u'今天是%s\n\t '
                    u'首先，今天已经是我们相恋的第%s天了喔。然后大兵就要来播送天气预报了！！\n\n\t'
@@ -47,7 +48,8 @@ class MyGirlSpider(scrapy.Spider):
                    today.strftime('%Y-%m-%d'), loving_days, Tod_Weather_Date[0], Tod_Weather_Wea[0], Tod_Weather_Tem[0],
                    Tod_Weather_Wind_Con[0], Tod_Weather_Wind_Num[0], Tom_Weather_Date[0], Tom_Weather_Wea[0],
                    Tom_Weather_Tem[0], Tom_Weather_Wind_Con[0], Tom_Weather_Wind_Num[0])]
-        elif('雨' in Tom_Weather_Wea[0]):
+        # elif('雨' in Tom_Weather_Wea[0]):
+        elif((Tom_Weather_Wea[0].find(u'雨')) != -1):
             lst = [u'你好，呆瓜:\n\n\t'
                    u'今天是%s\n\t '
                    u'首先，今天已经是我们相恋的第%s天了喔。然后大兵就要来播送天气预报了！！\n\n\t'
@@ -65,7 +67,8 @@ class MyGirlSpider(scrapy.Spider):
                        Tod_Weather_Tem[0],
                        Tod_Weather_Wind_Con[0], Tod_Weather_Wind_Num[0], Tom_Weather_Date[0], Tom_Weather_Wea[0],
                        Tom_Weather_Tem[0], Tom_Weather_Wind_Con[0], Tom_Weather_Wind_Num[0])]
-        elif(('雨' in Tod_Weather_Wea[0]) and ('雨' in Tom_Weather_Wea[0])):
+        # elif(('雨' in Tod_Weather_Wea[0]) and ('雨' in Tom_Weather_Wea[0])):
+        elif(((Tod_Weather_Wea[0].find(u'雨')) != -1) and ((Tom_Weather_Wea[0].find(u'雨')) != -1)):
             lst = [u'你好，呆瓜:\n\n\t'
                    u'今天是%s\n\t '
                    u'首先，今天已经是我们相恋的第%s天了喔。然后大兵就要来播送天气预报了！！\n\n\t'
