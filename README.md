@@ -16,7 +16,8 @@ pip install Scrapy
 scrapy startproject projectname
 ## projectname - you can define it yourself.
 
-## copy this code, you can run it.  
+## copy this code, you can run it.
+scrapy crawl projectname
 ```
 
 ------
