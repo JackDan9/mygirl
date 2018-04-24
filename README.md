@@ -20,11 +20,13 @@ scrapy startproject projectname
 scrapy crawl projectname
 ```
 
+- [python-2.7.14][1]
+
 ------
 
 ## ReadMeImage:
 
-![enter description here][1]
+![ResultImage][2]
 
 ------
 
@@ -33,4 +35,5 @@ scrapy crawl projectname
 - This will support me to keep updating!
 
 
-  [1]: ./images/readme.png "readme.png"
+  [1]: https://www.python.org/downloads/release/python-2714/
+  [2]: ./images/readme.png "readme.png"
