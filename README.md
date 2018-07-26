@@ -36,4 +36,4 @@ scrapy crawl projectname
 
 
   [1]: https://www.python.org/downloads/release/python-2714/
-  [2]: ./images/readme.png "readme.png"
+  [2]: ./images/mygirl_town_readme.png "mygirl_town_readme.png"
