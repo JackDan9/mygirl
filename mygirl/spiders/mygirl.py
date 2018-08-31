@@ -1,5 +1,11 @@
 # -*- coding: utf-8 -*-
 
+"""
+File: mygirl.py
+Author: jackdan9
+Date: 2018/8/31 10:05
+"""
+
 import scrapy
 import smtplib
 import datetime
@@ -30,10 +36,12 @@ class MyGirlSpider(scrapy.Spider):
         anniversary = datetime.datetime(2018, 3, 14)
         loving_days = (today - anniversary).days
 
-        # if('雨' in Tod_Weather_Wea[0]):
+        location = '郑州-河南工业大学(呆瓜的大学)'
+        loving_word = '爱你呦！！！'
+
         if((Tod_Weather_Wea[0].find(u'雨')) != -1):
             lst = [u'你好，呆瓜:\n\n\t'
-                   u'今天是%s\n\t '
+                   u'今天是%s，地点是%s\n\t '
                    u'首先，今天已经是我们相恋的第%s天了喔。然后大兵就要来播送天气预报了！！\n\n\t'
                    u'今天日期:%s\n'
                    u'今天天气情况:%s(记得带伞哦)\n'
@@ -44,14 +52,26 @@ class MyGirlSpider(scrapy.Spider):
                    u'明天天气情况:%s\n'
                    u'明天温度:%s℃\n'
                    u'明天风向:%s\n'
-                   u'明天风的级数:%s\n\n' % (
-                   today.strftime('%Y-%m-%d'), loving_days, Tod_Weather_Date[0], Tod_Weather_Wea[0], Tod_Weather_Tem[0],
-                   Tod_Weather_Wind_Con[0], Tod_Weather_Wind_Num[0], Tom_Weather_Date[0], Tom_Weather_Wea[0],
-                   Tom_Weather_Tem[0], Tom_Weather_Wind_Con[0], Tom_Weather_Wind_Num[0])]
-        # elif('雨' in Tom_Weather_Wea[0]):
+                   u'明天风的级数:%s\n\n'
+                   u'%s' % (
+                       today.strftime('%Y-%m-%d'),
+                       location,
+                       loving_days,
+                       Tod_Weather_Date[0],
+                       Tod_Weather_Wea[0],
+                       Tod_Weather_Tem[0],
+                       Tod_Weather_Wind_Con[0],
+                       Tod_Weather_Wind_Num[0],
+                       Tom_Weather_Date[0],
+                       Tom_Weather_Wea[0],
+                       Tom_Weather_Tem[0],
+                       Tom_Weather_Wind_Con[0],
+                       Tom_Weather_Wind_Num[0],
+                       loving_word)]
+
         elif((Tom_Weather_Wea[0].find(u'雨')) != -1):
             lst = [u'你好，呆瓜:\n\n\t'
-                   u'今天是%s\n\t '
+                   u'今天是%s，地点是%s\n\t '
                    u'首先，今天已经是我们相恋的第%s天了喔。然后大兵就要来播送天气预报了！！\n\n\t'
                    u'今天日期:%s\n'
                    u'今天天气情况:%s\n'
@@ -62,15 +82,26 @@ class MyGirlSpider(scrapy.Spider):
                    u'明天天气情况:%s(记得带伞哦)\n'
                    u'明天温度:%s℃\n'
                    u'明天风向:%s\n'
-                   u'明天风的级数:%s\n\n' % (
-                       today.strftime('%Y-%m-%d'), loving_days, Tod_Weather_Date[0], Tod_Weather_Wea[0],
+                   u'明天风的级数:%s\n\n'
+                   u'%s' % (
+                       today.strftime('%Y-%m-%d'),
+                       location,
+                       loving_days,
+                       Tod_Weather_Date[0],
+                       Tod_Weather_Wea[0],
                        Tod_Weather_Tem[0],
-                       Tod_Weather_Wind_Con[0], Tod_Weather_Wind_Num[0], Tom_Weather_Date[0], Tom_Weather_Wea[0],
-                       Tom_Weather_Tem[0], Tom_Weather_Wind_Con[0], Tom_Weather_Wind_Num[0])]
-        # elif(('雨' in Tod_Weather_Wea[0]) and ('雨' in Tom_Weather_Wea[0])):
+                       Tod_Weather_Wind_Con[0],
+                       Tod_Weather_Wind_Num[0],
+                       Tom_Weather_Date[0],
+                       Tom_Weather_Wea[0],
+                       Tom_Weather_Tem[0],
+                       Tom_Weather_Wind_Con[0],
+                       Tom_Weather_Wind_Num[0],
+                       loving_word)]
+
         elif(((Tod_Weather_Wea[0].find(u'雨')) != -1) and ((Tom_Weather_Wea[0].find(u'雨')) != -1)):
             lst = [u'你好，呆瓜:\n\n\t'
-                   u'今天是%s\n\t '
+                   u'今天是%s，地点是%s\n\t '
                    u'首先，今天已经是我们相恋的第%s天了喔。然后大兵就要来播送天气预报了！！\n\n\t'
                    u'今天日期:%s\n'
                    u'今天天气情况:%s(记得带伞哦)\n'
@@ -81,14 +112,26 @@ class MyGirlSpider(scrapy.Spider):
                    u'明天天气情况:%s(记得带伞哦)\n'
                    u'明天温度:%s℃\n'
                    u'明天风向:%s\n'
-                   u'明天风的级数:%s\n\n' % (
-                       today.strftime('%Y-%m-%d'), loving_days, Tod_Weather_Date[0], Tod_Weather_Wea[0],
+                   u'明天风的级数:%s\n\n'
+                   u'%s' % (
+                       today.strftime('%Y-%m-%d'),
+                       location,
+                       loving_days,
+                       Tod_Weather_Date[0],
+                       Tod_Weather_Wea[0],
                        Tod_Weather_Tem[0],
-                       Tod_Weather_Wind_Con[0], Tod_Weather_Wind_Num[0], Tom_Weather_Date[0], Tom_Weather_Wea[0],
-                       Tom_Weather_Tem[0], Tom_Weather_Wind_Con[0], Tom_Weather_Wind_Num[0])]
+                       Tod_Weather_Wind_Con[0],
+                       Tod_Weather_Wind_Num[0],
+                       Tom_Weather_Date[0],
+                       Tom_Weather_Wea[0],
+                       Tom_Weather_Tem[0],
+                       Tom_Weather_Wind_Con[0],
+                       Tom_Weather_Wind_Num[0],
+                       loving_word)]
+
         elif(28 <= int(Tod_Weather_Tem[0]) < 50):
             lst = [u'你好，呆瓜:\n\n\t'
-                   u'今天是%s\n\t '
+                   u'今天是%s，地点是%s\n\t '
                    u'首先，今天已经是我们相恋的第%s天了喔。然后大兵就要来播送天气预报了！！\n\n\t'
                    u'今天日期:%s\n'
                    u'今天天气情况:%s\n'
@@ -99,13 +142,26 @@ class MyGirlSpider(scrapy.Spider):
                    u'明天天气情况:%s\n'
                    u'明天温度:%s℃\n'
                    u'明天风向:%s\n'
-                   u'明天风的级数:%s\n\n' % (
-                   today.strftime('%Y-%m-%d'), loving_days, Tod_Weather_Date[0], Tod_Weather_Wea[0], Tod_Weather_Tem[0],
-                   Tod_Weather_Wind_Con[0], Tod_Weather_Wind_Num[0], Tom_Weather_Date[0], Tom_Weather_Wea[0],
-                   Tom_Weather_Tem[0], Tom_Weather_Wind_Con[0], Tom_Weather_Wind_Num[0])]
+                   u'明天风的级数:%s\n\n' 
+                   u'%s' % (
+                       today.strftime('%Y-%m-%d'),
+                       location,
+                       loving_days,
+                       Tod_Weather_Date[0],
+                       Tod_Weather_Wea[0],
+                       Tod_Weather_Tem[0],
+                       Tod_Weather_Wind_Con[0],
+                       Tod_Weather_Wind_Num[0],
+                       Tom_Weather_Date[0],
+                       Tom_Weather_Wea[0],
+                       Tom_Weather_Tem[0],
+                       Tom_Weather_Wind_Con[0],
+                       Tom_Weather_Wind_Num[0],
+                       loving_word)]
+
         elif (-15 <= int(Tod_Weather_Tem[0]) < 10):
             lst = [u'你好，呆瓜:\n\n\t'
-                   u'今天是%s\n\t '
+                   u'今天是%s，地点是%s\n\t '
                    u'首先，今天已经是我们相恋的第%s天了喔。然后大兵就要来播送天气预报了！！\n\n\t'
                    u'今天日期:%s\n'
                    u'今天天气情况:%s\n'
@@ -116,14 +172,26 @@ class MyGirlSpider(scrapy.Spider):
                    u'明天天气情况:%s\n'
                    u'明天温度:%s℃\n'
                    u'明天风向:%s\n'
-                   u'明天风的级数:%s\n\n' % (
-                       today.strftime('%Y-%m-%d'), loving_days, Tod_Weather_Date[0], Tod_Weather_Wea[0],
+                   u'明天风的级数:%s\n\n' 
+                   u'%s' % (
+                       today.strftime('%Y-%m-%d'),
+                       location,
+                       loving_days,
+                       Tod_Weather_Date[0],
+                       Tod_Weather_Wea[0],
                        Tod_Weather_Tem[0],
-                       Tod_Weather_Wind_Con[0], Tod_Weather_Wind_Num[0], Tom_Weather_Date[0], Tom_Weather_Wea[0],
-                       Tom_Weather_Tem[0], Tom_Weather_Wind_Con[0], Tom_Weather_Wind_Num[0])]
+                       Tod_Weather_Wind_Con[0],
+                       Tod_Weather_Wind_Num[0],
+                       Tom_Weather_Date[0],
+                       Tom_Weather_Wea[0],
+                       Tom_Weather_Tem[0],
+                       Tom_Weather_Wind_Con[0],
+                       Tom_Weather_Wind_Num[0],
+                       loving_word)]
+
         elif(28 <= int(Tom_Weather_Tem[0]) < 50):
             lst = [u'你好，呆瓜:\n\n\t'
-                   u'今天是%s\n\t '
+                   u'今天是%s，地点是%s\n\t '
                    u'首先，今天已经是我们相恋的第%s天了喔。然后大兵就要来播送天气预报了！！\n\n\t'
                    u'今天日期:%s\n'
                    u'今天天气情况:%s\n'
@@ -134,14 +202,26 @@ class MyGirlSpider(scrapy.Spider):
                    u'明天天气情况:%s\n'
                    u'明天温度:%s℃(记得涂防晒霜哦)\n'
                    u'明天风向:%s\n'
-                   u'明天风的级数:%s\n\n' % (
-                       today.strftime('%Y-%m-%d'), loving_days, Tod_Weather_Date[0], Tod_Weather_Wea[0],
+                   u'明天风的级数:%s\n\n'
+                   u'%s' % (
+                       today.strftime('%Y-%m-%d'),
+                       location,
+                       loving_days,
+                       Tod_Weather_Date[0],
+                       Tod_Weather_Wea[0],
                        Tod_Weather_Tem[0],
-                       Tod_Weather_Wind_Con[0], Tod_Weather_Wind_Num[0], Tom_Weather_Date[0], Tom_Weather_Wea[0],
-                       Tom_Weather_Tem[0], Tom_Weather_Wind_Con[0], Tom_Weather_Wind_Num[0])]
+                       Tod_Weather_Wind_Con[0],
+                       Tod_Weather_Wind_Num[0],
+                       Tom_Weather_Date[0],
+                       Tom_Weather_Wea[0],
+                       Tom_Weather_Tem[0],
+                       Tom_Weather_Wind_Con[0],
+                       Tom_Weather_Wind_Num[0],
+                       loving_word)]
+
         elif(-15 <= int(Tom_Weather_Tem[0]) < 10):
             lst = [u'你好，呆瓜:\n\n\t'
-                   u'今天是%s\n\t '
+                   u'今天是%s，地点是%s\n\t '
                    u'首先，今天已经是我们相恋的第%s天了喔。然后大兵就要来播送天气预报了！！\n\n\t'
                    u'今天日期:%s\n'
                    u'今天天气情况:%s\n'
@@ -152,14 +232,26 @@ class MyGirlSpider(scrapy.Spider):
                    u'明天天气情况:%s\n'
                    u'明天温度:%s℃(记得穿厚一些哦)\n'
                    u'明天风向:%s\n'
-                   u'明天风的级数:%s\n\n' % (
-                       today.strftime('%Y-%m-%d'), loving_days, Tod_Weather_Date[0], Tod_Weather_Wea[0],
+                   u'明天风的级数:%s\n\n' 
+                   u'%s' % (
+                       today.strftime('%Y-%m-%d'),
+                       location,
+                       loving_days,
+                       Tod_Weather_Date[0],
+                       Tod_Weather_Wea[0],
                        Tod_Weather_Tem[0],
-                       Tod_Weather_Wind_Con[0], Tod_Weather_Wind_Num[0], Tom_Weather_Date[0], Tom_Weather_Wea[0],
-                       Tom_Weather_Tem[0], Tom_Weather_Wind_Con[0], Tom_Weather_Wind_Num[0])]
+                       Tod_Weather_Wind_Con[0],
+                       Tod_Weather_Wind_Num[0],
+                       Tom_Weather_Date[0],
+                       Tom_Weather_Wea[0],
+                       Tom_Weather_Tem[0],
+                       Tom_Weather_Wind_Con[0],
+                       Tom_Weather_Wind_Num[0],
+                       loving_word)]
+
         elif((28 <= int(Tod_Weather_Tem[0]) < 50) and (28 <= int(Tom_Weather_Tem[0]) < 50)):
             lst = [u'你好，呆瓜:\n\n\t'
-                   u'今天是%s\n\t '
+                   u'今天是%s，地点是%s\n\t '
                    u'首先，今天已经是我们相恋的第%s天了喔。然后大兵就要来播送天气预报了！！\n\n\t'
                    u'今天日期:%s\n'
                    u'今天天气情况:%s\n'
@@ -170,14 +262,26 @@ class MyGirlSpider(scrapy.Spider):
                    u'明天天气情况:%s\n'
                    u'明天温度:%s℃(记得涂防晒霜)\n'
                    u'明天风向:%s\n'
-                   u'明天风的级数:%s\n\n' % (
-                       today.strftime('%Y-%m-%d'), loving_days, Tod_Weather_Date[0], Tod_Weather_Wea[0],
+                   u'明天风的级数:%s\n\n' 
+                   u'%s' % (
+                       today.strftime('%Y-%m-%d'),
+                       location,
+                       loving_days,
+                       Tod_Weather_Date[0],
+                       Tod_Weather_Wea[0],
                        Tod_Weather_Tem[0],
-                       Tod_Weather_Wind_Con[0], Tod_Weather_Wind_Num[0], Tom_Weather_Date[0], Tom_Weather_Wea[0],
-                       Tom_Weather_Tem[0], Tom_Weather_Wind_Con[0], Tom_Weather_Wind_Num[0])]
+                       Tod_Weather_Wind_Con[0],
+                       Tod_Weather_Wind_Num[0],
+                       Tom_Weather_Date[0],
+                       Tom_Weather_Wea[0],
+                       Tom_Weather_Tem[0],
+                       Tom_Weather_Wind_Con[0],
+                       Tom_Weather_Wind_Num[0],
+                       loving_word)]
+
         elif((-15 <= int(Tod_Weather_Tem[0]) < 10) and (-15 <= int(Tom_Weather_Tem[0]) < 10)):
             lst = [u'你好，呆瓜:\n\n\t'
-                   u'今天是%s\n\t '
+                   u'今天是%s，地点是%s\n\t '
                    u'首先，今天已经是我们相恋的第%s天了喔。然后大兵就要来播送天气预报了！！\n\n\t'
                    u'今天日期:%s\n'
                    u'今天天气情况:%s\n'
@@ -188,14 +292,26 @@ class MyGirlSpider(scrapy.Spider):
                    u'明天天气情况:%s\n'
                    u'明天温度:%s℃(记得穿厚一点哦)\n'
                    u'明天风向:%s\n'
-                   u'明天风的级数:%s\n\n' % (
-                       today.strftime('%Y-%m-%d'), loving_days, Tod_Weather_Date[0], Tod_Weather_Wea[0],
+                   u'明天风的级数:%s\n\n' 
+                   u'%s' % (
+                       today.strftime('%Y-%m-%d'),
+                       location,
+                       loving_days,
+                       Tod_Weather_Date[0],
+                       Tod_Weather_Wea[0],
                        Tod_Weather_Tem[0],
-                       Tod_Weather_Wind_Con[0], Tod_Weather_Wind_Num[0], Tom_Weather_Date[0], Tom_Weather_Wea[0],
-                       Tom_Weather_Tem[0], Tom_Weather_Wind_Con[0], Tom_Weather_Wind_Num[0])]
+                       Tod_Weather_Wind_Con[0],
+                       Tod_Weather_Wind_Num[0],
+                       Tom_Weather_Date[0],
+                       Tom_Weather_Wea[0],
+                       Tom_Weather_Tem[0],
+                       Tom_Weather_Wind_Con[0],
+                       Tom_Weather_Wind_Num[0],
+                       loving_word)]
+
         else:
             lst = [u'你好，呆瓜:\n\n\t'
-                   u'今天是%s\n\t '
+                   u'今天是%s，地点是%s\n\t '
                    u'首先，今天已经是我们相恋的第%s天了喔。然后大兵就要来播送天气预报了！！\n\n\t'
                    u'今天日期:%s\n'
                    u'今天天气情况:%s\n'
@@ -206,7 +322,22 @@ class MyGirlSpider(scrapy.Spider):
                    u'明天天气情况:%s\n'
                    u'明天温度:%s℃\n'
                    u'明天风向:%s\n'
-                   u'明天风的级数:%s\n\n' % (today.strftime('%Y-%m-%d'), loving_days, Tod_Weather_Date[0], Tod_Weather_Wea[0], Tod_Weather_Tem[0], Tod_Weather_Wind_Con[0], Tod_Weather_Wind_Num[0], Tom_Weather_Date[0], Tom_Weather_Wea[0], Tom_Weather_Tem[0], Tom_Weather_Wind_Con[0], Tom_Weather_Wind_Num[0])]
+                   u'明天风的级数:%s\n\n' 
+                   u'%s' % (
+                       today.strftime('%Y-%m-%d'),
+                       location,
+                       loving_days,
+                       Tod_Weather_Date[0],
+                       Tod_Weather_Wea[0],
+                       Tod_Weather_Tem[0],
+                       Tod_Weather_Wind_Con[0],
+                       Tod_Weather_Wind_Num[0],
+                       Tom_Weather_Date[0],
+                       Tom_Weather_Wea[0],
+                       Tom_Weather_Tem[0],
+                       Tom_Weather_Wind_Con[0],
+                       Tom_Weather_Wind_Num[0],
+                       loving_word)]
 
         # It is receiver email word.
         mailto_list = "*********@qq.com"
