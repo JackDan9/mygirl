@@ -13,6 +13,7 @@ class MyGirlSpider(scrapy.Spider):
         "http://forecast.weather.com.cn/town/weather1dn/101260409003.shtml", # 贵州省-平塘县-大塘镇
     ]
 
+
     def parse(self, response):
         Tod_Weather_Wea = response.xpath('//*[@class="weather dis"]/text()').extract()
         Tod_Weather_Tem = response.xpath('//*[@class="tempDiv"]/span[1]/text()').extract()
@@ -37,9 +38,11 @@ class MyGirlSpider(scrapy.Spider):
         print(today)
         anniversary = datetime.datetime(2018, 3, 14)
         loving_days = (today - anniversary).days
+        location = '平塘县-大塘镇(西关中学和西关小学)'
+        loving_word = '爱你呦！！！'
 
         lst = [u'你好，呆瓜:\n\n\t'
-               u'今天是%s, 地点是平塘县-大塘镇(西关中学和西关小学)\n\t'
+               u'今天是%s, 地点是%s\n\t'
                u'首先，今天已经是我们相恋的第%s天了喔。然后大兵就要来播送天气预报了！！\n\n\t'
                u'今天日期:%s\n'
                u'今天天气情况:%s\n'
@@ -61,9 +64,10 @@ class MyGirlSpider(scrapy.Spider):
                u'空气污染扩散:%s\n'
                u'小贴士:%s\n\n'
         
-               u'爱你哟!!!'
+               u'%s'
                % (
-                    today.strftime('%Y-%m-%d'), 
+                    today.strftime('%Y-%m-%d'),
+                    location,
                     loving_days, 
                     today.strftime('%Y-%m-%d'), 
                     Tod_Weather_Wea[0], 
@@ -81,7 +85,8 @@ class MyGirlSpider(scrapy.Spider):
                     Tod_Weather_Exercise[0], 
                     Tod_Weather_Exercise_Sug[0], 
                     Tod_Weather_Pollute[0], 
-                    Tod_Weather_Pollute_Sug[0]
+                    Tod_Weather_Pollute_Sug[0],
+                    loving_word
                 )
             ]
         # It is receiver email word.
