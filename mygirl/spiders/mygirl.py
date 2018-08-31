@@ -1,5 +1,11 @@
 # -*- coding: utf-8 -*-
 
+"""
+File: mygirl.py
+Author: jackdan9
+Date: 2018/8/31 10:07
+"""
+
 import scrapy
 import smtplib
 import datetime
