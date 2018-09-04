@@ -13,6 +13,12 @@ from email.mime.text import MIMEText
 from email.header import Header
 import traceback
 
+import sys
+defaultencoding = 'utf-8'
+if sys.getdefaultencoding() != defaultencoding
+    reload(sys)
+    sys.setdefaultencoding(defaultencoding)
+
 class MyGirlSpider(scrapy.Spider):
     name = "mygirl"
     start_urls = [
@@ -41,9 +47,9 @@ class MyGirlSpider(scrapy.Spider):
         # Hum(Humidity)
 
         today = datetime.datetime.today()
-        print(today)
         anniversary = datetime.datetime(2018, 3, 14)
         loving_days = (today - anniversary).days
+
         location = '平塘县-大塘镇(西关中学和西关小学)'
         loving_word = '爱你呦！！！'
 
