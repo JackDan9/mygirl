@@ -13,6 +13,12 @@ from email.mime.text import MIMEText
 from email.header import Header
 import traceback
 
+import sys
+defaultencoding = 'utf-8'
+if sys.getdefaultencoding() != defaultencoding
+    reload(sys)
+    sys.setdefaultencoding(defaultencoding)
+
 class MyGirlSpider(scrapy.Spider):
     name = "mygirl"
     start_urls = [
