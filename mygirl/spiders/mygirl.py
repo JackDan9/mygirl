@@ -522,12 +522,6 @@ class MyGirlSpider(scrapy.Spider):
         # # It is your password
         # mail_pass = "**********"
         # It is receiver email word.
-        mailto_list = "1835812864@qq.com"
-        mail_host = "smtp.qq.com"
-        # It is your email word.
-        mail_user = "1835812864@qq.com"
-        # It is your password
-        mail_pass = "mywwyiohmeopdfdd"
 
         content = ''.join(lst)
         msg = MIMEText(content, _subtype='html', _charset='utf-8')
