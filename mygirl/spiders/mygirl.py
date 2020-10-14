@@ -27,6 +27,12 @@ if sys.getdefaultencoding() != defaultencoding:
 LOG = logging.getLogger(__name__)
 
 
+import sys
+defaultencoding = 'utf-8'
+if sys.getdefaultencoding() != defaultencoding
+    reload(sys)
+    sys.setdefaultencoding(defaultencoding)
+
 class MyGirlSpider(scrapy.Spider):
     """Spider to perform necessary checks to get the network address information of start_urls and
     Format web page information to get the required fields to piece together the mail.
